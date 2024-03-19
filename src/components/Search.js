@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PlantList from "./PlantList";
 
 function Search(updateSearch, updateSort) {
 
@@ -7,19 +6,6 @@ function Search(updateSearch, updateSort) {
     search: '',
     sort: "true"
   }
-  // const searchBar = () => {}
-  // const  [searchInput, setSearchInput] = useState("")
-
-  // const handleChange = (e) => {
-  //   e.preventDefault();
-  //   setSearchInput(e.target.value);
-  // };
-  // if (searchInput.length > 0) {
-  //   plants.filter((plants) => {
-  //     return plants.name.match(searchInput)
-  //   });
-
-  // }
 
   const [form, setForm] = useState(initialForm)
 
