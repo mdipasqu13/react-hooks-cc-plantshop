@@ -36,6 +36,12 @@ function PlantCard({ plant, deletePlant }) {
   const handleUpdatePrice = () => {
     updatePlantPrice();
   };
+//creates a state variable soldOut and sets its initial value to true
+//const handleClick toggles the soldOut variable state between true and false
+  const [soldOut, setSoldOut] = useState(true)
+  const handleClick = () => {
+    setSoldOut(prev => !prev)
+  }
   //when called, sends a DELETE request to the server to delete the plant with the given id
   const handleDelete = async () => {
     try {
@@ -54,6 +60,7 @@ function PlantCard({ plant, deletePlant }) {
   //ternary operator in Price tag checks that the updatedPlantPrice is not null, meaning that a new price has been
   //input and updated, and so displays the updated price
   //if updatedPlantPrice is null it means the price hasn't been updated, so it displays the original price
+  //added a button to toggle between "In Stock" and "Out of Stock"
   //onChange={handleInputChange} means handleInputChange is called when value of input for newPrice is updated
   //added an Update Price button that calls handleUpdatePrice
   //added a Delete button that calls handleDelete
@@ -62,12 +69,18 @@ function PlantCard({ plant, deletePlant }) {
       <img src={plant.image} alt={plant.name} />
       <h4>{plant.name}</h4>
       <p>Price: {updatedPlantPrice !== null ? updatedPlantPrice : plant.price}</p>
+      {soldOut ? (
+        <button onClick={handleClick} className="primary">In Stock</button>
+      ) : (
+        <button onClick={handleClick}>Out of Stock</button>
+      )}
       <input
         type="number"
         value={newPrice}
         onChange={handleInputChange}
         placeholder="New Price"
       />
+
       <button onClick={handleUpdatePrice}>Update Price</button>
       <button onClick={handleDelete}>Delete</button>
     </li>
