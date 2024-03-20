@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import Search from "./Search";
 
-function Header({ updateSearch }) {
 
+import React from "react";
+
+function Header() {
   return (
     <header>
       <h1>
@@ -11,7 +11,6 @@ function Header({ updateSearch }) {
           🌱
         </span>
       </h1>
-      <Search updateSearch={updateSearch} />
     </header>
   );
 }
