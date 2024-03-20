@@ -1,7 +1,5 @@
-
-
 import React from "react";
-
+//I left this alone. Contains the header banner at top of page along with the little plant emoji
 function Header() {
   return (
     <header>

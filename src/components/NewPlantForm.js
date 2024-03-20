@@ -1,22 +1,24 @@
-
-
 import React, { useState } from "react";
+
+//created a component called NewPlantForm which accepts the addPlant prop to create a new plant object
+//initialForm defines the object structure of the new plant to be added, with all values set to blank
 
 function NewPlantForm({ addPlant }) {
 
   const initialForm = { 
     name: "",
     image: "",
-    price: 0,
+    price: ""
   }
   const [form, setForm] = useState(initialForm)
-
+//handleChange updates the previous form state (...form) to the new value input by user
   const handleChange = (e) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value
     })
   }
+  //sends a POST request to the server and adds the new plant 
   const handleSubmit = (e) => {
     e.preventDefault()
     fetch("http://localhost:6001/plants", {
@@ -36,7 +38,9 @@ function NewPlantForm({ addPlant }) {
       setForm(initialForm)
     })
   }
-
+//returns JSX with the input fields for a new plant's name, image and price.
+//each value has a placeholder string which appears while input field is blank
+//an Add Plant button is included, which when clicked calls the handleSubmit function from above
   return (
     <div className="new-plant-form">
       <h2>New Plant</h2>
@@ -51,3 +55,8 @@ function NewPlantForm({ addPlant }) {
 }
 
 export default NewPlantForm;
+
+//I'm not sure how to meet the Advanced Deliverable of being able to update the price of a plant and have it persist on 
+//page refresh. You can, however, add a new plant using this NewPlantForm component, input the name and image url
+//of the already existing plant, but change the value of the price. The new plant will persist on refresh of the page,
+//and the old plant can be deleted (which will also persist). 
