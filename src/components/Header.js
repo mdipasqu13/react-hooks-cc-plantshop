@@ -1,11 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Search from "./Search";
 
-function Header({ updateSearch, updateSort }) {
-  // const handleChange = (event) => {
-  //   const searchTerm = event.target.value;
-  //   handleSearch(searchTerm); // Pass the search term to the handleSearch function
-  // };
+function Header({ updateSearch }) {
 
   return (
     <header>
@@ -15,7 +11,7 @@ function Header({ updateSearch, updateSort }) {
           🌱
         </span>
       </h1>
-      <Search updateSearch={updateSearch} updateSort={updateSort} />
+      <Search updateSearch={updateSearch} />
     </header>
   );
 }

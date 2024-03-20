@@ -1,38 +1,41 @@
 import React, { useState } from "react";
 
-function Search(updateSearch, updateSort) {
+// function Search(updateSearch, updateSort) {
+function Search({ updateSearch }) {
 
-  const initialForm = {
-    search: '',
-    sort: "true"
-  }
+  // const initialForm = {
+  //   search: '',
+  // }
 
-  const [form, setForm] = useState(initialForm)
+  // const [form, setForm] = useState(initialForm)
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    updateSearch(form.search)
-    updateSort(form.sort)
-    setForm(initialForm)
-  }
+  const [form, setForm] = useState('')
+  
+
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   updateSearch(form)
+  //   // updateSort(form.sort)
+  //   // setForm(initialForm)
+  // }
 
   function handleChange(e) {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value
-    })
+    const searchTerm = e.target.value;
+    setForm(searchTerm)
+    updateSearch(searchTerm)
   }
 
+  
   return (
-    <div className="searchbar" onSubmit={handleChange}>
+    <div className="searchbar">
       <label htmlFor="search">Search Plants:</label>
       <input
         type="text"
         id="search"
         name="search"
-        value={form.search}
+        value={form}
         placeholder="Type a name to search..."
-        onChange={(e) => handleChange(e)}
+        onChange={handleChange}
       />
     </div>
   );
