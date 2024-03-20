@@ -26,6 +26,11 @@ function PlantPage() {
   const addPlant = (newPlant) => {
     setPlants([...plants, newPlant])
   }
+    //deletes a plant by taking the id of the plant and removing the plant with the matching id. 
+  const deletePlant =(id) => {
+    const updatedPlants = plants.filter((plant) => plant.id!== id);
+    setPlants(updatedPlants);
+    }
   //updateSearch takes the newSearch query input by the user and updates the state with setSearch
   function updateSearch(newSearch){
     setSearch(newSearch)
@@ -34,11 +39,7 @@ function PlantPage() {
   const displayedPlants = plants.filter((plant) => {
     return plant.name.toString().toLowerCase().includes(search.toLowerCase());
   });
-  //deletes a plant by taking the id of the plant and removing the plant with the matching id. 
-  const deletePlant =(id) => {
-    const updatedPlants = plants.filter((plant) => plant.id!== id);
-    setPlants(updatedPlants);
-  }
+
   //returns JSX that includes NewPlantForm, Search and PlantList components
   //passes the addPlant, search, updatesearch, plants and deletePlant props to these components
   return (

@@ -55,8 +55,3 @@ function NewPlantForm({ addPlant }) {
 }
 
 export default NewPlantForm;
-
-//I'm not sure how to meet the Advanced Deliverable of being able to update the price of a plant and have it persist on 
-//page refresh. You can, however, add a new plant using this NewPlantForm component, input the name and image url
-//of the already existing plant, but change the value of the price. The new plant will persist on refresh of the page,
-//and the old plant can be deleted (which will also persist). 
